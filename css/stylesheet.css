@@ -19,7 +19,7 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: red;
-    font-style: bold;
+    font-weight: bold;
     text-decoration: none;
 }
 
