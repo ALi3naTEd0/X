@@ -19,12 +19,12 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: red;
-    font-weight: bold;
     text-decoration: none;
 }
 
 /* selected link */
 a:active {
     color: blue;
+    font-weight: bold;
     text-decoration: none;
 }
