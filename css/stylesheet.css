@@ -2,8 +2,12 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 21px;
   max-width: 1000px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 /* unvisited link */
 a:link {
     color: green;
