@@ -3,6 +3,7 @@ body {
   font-size: 21px;
   max-width: 1000px;
   margin: auto;
+  padding: 0px 10px;
 }
 /* unvisited link */
 a:link {
