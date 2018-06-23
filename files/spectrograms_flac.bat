@@ -9,7 +9,7 @@ FOR /f %%x IN (
 'DIR /AD /B * ^| FINDSTR "^sox-[0-9].*$"'
 ) DO SET SOXDIR=%DIRECTORY%\%%x
 %~D0
-CD %~DP0
+CD "%~DP0"
 @ECHO ON
 MKDIR spectrograms
 FOR %%A IN (*.flac) DO "%SOXDIR%\sox.exe" "%%A" -n remix 1 spectrogram -t "%%A" -x 1000 -o "spectrograms/%%A.png"
