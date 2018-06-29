@@ -15,12 +15,76 @@
 
 <h3>AUTO GENERATE SPECTROGRAMS</h3>
 
+<b>WINDOWS</b>
+
 <ul>
   <li>Download and install the latest SoX from <a href="https://sourceforge.net/projects/sox/files/sox/" target="_blank"><b>HERE</b></a>.</li>
   <li>To test MP3 you need to download <a href="files/libmad-0.dll_and_libmp3lame-0.dll.7z"><b>THIS</b></a> file and extract it to SoX installation folder: "C:\Program Files (x86)\sox-14-4-2".</li>
   <li>Finally grab the file you want from below, copy it inside the folder where the files you want to test are located and run it.<br>
   <a href="files/spectrograms_mp3.bat">MP3</a> | <a href="files/spectrograms_flac.bat">FLAC</a> | <a href="files/spectrograms_wav.bat">WAV</a></li>
 </ul>
+
+<b>MacOS</b>
+
+<p>I sometimes have the need to generate a spectrogram of a song and each time, I can't remember the SoX formula. So I decided to create a small script and, with a bit of research, automate the display of spectrogram directly within the iTerm application for Mac.</p>
+
+<u>Requirements</u>
+
+<p>- This obviously requires macOS as I don't know about terminal application for UNIX-based OS. However, I've heard that programmes like terminator were able to do bluffing things. If you want to adapt that tutorial to your Linux OS, feel free to share it.</p>
+
+<p>- <a href="https://iterm2.com" target="_blank">iTerm</a> for Mac. If you don't know about it and own a Mac, then please take time to discover it. It's amazing and allows many things the original Terminal.app can't do.</p>
+
+<p>- The <a href="https://www.iterm2.com/utilities/imgcat" target="_blank">imgcat script</a> from iTerm.</p>
+
+<p>- <a href="http://sox.sourceforge.net" target="_blank">SoX</a> for Mac</p>
+
+<u>Installation</u>
+
+<p>- Install SoX on your mac using <a href="https://brew.sh" target="_blank">brew</a>:</p>
+
+<code>
+$ brew install sox --with-flac --with-lame
+</code>
+
+<p>The flags are for compatibility purpose between lame, flac ans SoX. Don't forget them even though you already have flac and lame installed on your system.</p>
+
+<p>- Install imgcat in /usr/local/bin:</p>
+
+<code>
+$ curl https://www.iterm2.com/utilities/imgcat > imgcat
+$ mv imgcat /usr/local/bin
+$ chmod +x /usr/local/bin/imgcat
+</code>
+
+<p>- Copy and paste that bit of code in a script file. Mine is called spectro but you can call it whatever you want. It has to be placed in /usr/local/bin.</p>
+
+<code>
+#!/bin/bash
+
+var="$(echo $1 | sed 's/ /\\ /g')"
+sox "$var" -n spectrogram -o /tmp/spectrogram.png
+imgcat /tmp/spectrogram.png
+rm -rf /tmp/spectrogram.png
+</code>
+
+<p>And make it executable:</p>
+
+<code>
+$ chmod +x /usr/local/bin/spectro
+</code>
+
+<u>Usage</u>
+
+<p>Simply:</p>
+
+<code>
+$ spectro /path/to/your/FLAC/or/MP3
+</code>
+
+<u>Sreenshot</u>
+
+<p>https://ptpimg.me/19y4x6.png</p>
+
 
 </body>
 
