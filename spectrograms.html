@@ -42,44 +42,44 @@
 
 <p>- Install SoX on your mac using <a href="https://brew.sh" target="_blank">brew</a>:</p>
 
-<pre><i>
-$ brew install sox --with-flac --with-lame
-</i></pre>
+<i>
+$ brew install sox --with-flac --with-lame<br>
+</i>
 
 <p>The flags are for compatibility purpose between lame, flac ans SoX. Don't forget them even though you already have flac and lame installed on your system.</p>
 
 <p>- Install imgcat in /usr/local/bin:</p>
 
-<pre><i>
-$ curl https://www.iterm2.com/utilities/imgcat > imgcat
-$ mv imgcat /usr/local/bin
-$ chmod +x /usr/local/bin/imgcat
-</i></pre>
+<i>
+$ curl https://www.iterm2.com/utilities/imgcat > imgcat<br>
+$ mv imgcat /usr/local/bin<br>
+$ chmod +x /usr/local/bin/imgcat<br>
+</i>
 
 <p>- Copy and paste that bit of code in a script file. Mine is called spectro but you can call it whatever you want. It has to be placed in /usr/local/bin.</p>
 
-<pre><i>
-#!/bin/bash
-
-var="$(echo $1 | sed 's/ /\\ /g')"
-sox "$var" -n spectrogram -o /tmp/spectrogram.png
-imgcat /tmp/spectrogram.png
-rm -rf /tmp/spectrogram.png
-</i></pre>
+<i>
+#!/bin/bash<br>
+<br>
+var="$(echo $1 | sed 's/ /\\ /g')"<br>
+sox "$var" -n spectrogram -o /tmp/spectrogram.png<br>
+imgcat /tmp/spectrogram.png<br>
+rm -rf /tmp/spectrogram.png<br>
+</i>
 
 <p>And make it executable:</p>
 
-</pre><i>
+<i>
 $ chmod +x /usr/local/bin/spectro
-</i></pre>
+</i>
 
 <p><u>Usage</u></p>
 
 <p>Simply:</p>
 
-<pre><i>
+<i>
 $ spectro /path/to/your/FLAC/or/MP3
-</i></pre>
+</i>
 
 <p><u>Sreenshot</u></p>
 
