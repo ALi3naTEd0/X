@@ -14,13 +14,15 @@
 <h1><a href="index.html"><img src="images/logo.png" width="50px" height="50px"></a></h1>
 
 <h3>GENERATE SPECTROGRAMS</h3>
+<br>
 
 <b>WINDOWS</b>
 
-<p>- Download and install the latest SoX from <a href="https://sourceforge.net/projects/sox/files/sox/" target="_blank"><b>HERE</b></a>.</p>
-<p>- To test MP3 you need to download <a href="files/libmad-0.dll_and_libmp3lame-0.dll.7z"><b>THIS</b></a> file and extract it to SoX installation folder: "C:\Program Files (x86)\sox-14-4-2".</p>
+<p>- Download and install the latest SoX from <a href="https://sourceforge.net/projects/sox/files/sox/" target="_blank">HERE</a>.</p>
+<p>- To test MP3 you need to download <a href="files/libmad-0.dll_and_libmp3lame-0.dll.7z">THIS</a> file and extract it to SoX installation folder: "C:\Program Files (x86)\sox-14-4-2".</p>
 <p>- Finally grab the file you want from below, copy it inside the folder where the files you want to test are located and run it.</p>
 <p><a href="files/spectrograms_mp3.bat">MP3</a> | <a href="files/spectrograms_flac.bat">FLAC</a> | <a href="files/spectrograms_wav.bat">WAV</a></p>
+<br>
 
 <b>MacOS</b>
 
@@ -40,34 +42,36 @@
 
 <p>- Install SoX on your mac using <a href="https://brew.sh" target="_blank">brew</a>:</p>
 
-<i>
+<pre><i>
 $ brew install sox --with-flac --with-lame
-</i>
+</i></pre>
 
 <p>The flags are for compatibility purpose between lame, flac ans SoX. Don't forget them even though you already have flac and lame installed on your system.</p>
 
 <p>- Install imgcat in /usr/local/bin:</p>
 
-<i>
-$ curl https://www.iterm2.com/utilities/imgcat > imgcat
-$ mv imgcat /usr/local/bin
-$ chmod +x /usr/local/bin/imgcat
-</i>
+<pre><i>
+$ curl https://www.iterm2.com/utilities/imgcat > imgcat<br>
+$ mv imgcat /usr/local/bin<br>
+$ chmod +x /usr/local/bin/imgcat<br>
+</i></pre>
 
 <p>- Copy and paste that bit of code in a script file. Mine is called spectro but you can call it whatever you want. It has to be placed in /usr/local/bin.</p>
 
-<i>
-#!/bin/bash
-
-var="$(echo $1 | sed 's/ /\\ /g')"
-sox "$var" -n spectrogram -o /tmp/spectrogram.png
-imgcat /tmp/spectrogram.png
-rm -rf /tmp/spectrogram.png
-</i>
+<pre><i>
+#!/bin/bash<br>
+<br>
+var="$(echo $1 | sed 's/ /\\ /g')"<br>
+sox "$var" -n spectrogram -o /tmp/spectrogram.png<br>
+imgcat /tmp/spectrogram.png<br>
+rm -rf /tmp/spectrogram.png<br>
+</i></pre>
 
 <p>And make it executable:</p>
 
-<i>$ chmod +x /usr/local/bin/spectro</i>
+</pre><i>
+$ chmod +x /usr/local/bin/spectro
+</i></pre>
 
 <p><u>Usage</u></p>
 
