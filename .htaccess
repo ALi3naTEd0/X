@@ -1,3 +1,8 @@
 RewriteEngine On
+# remove the index file
+RewriteCond %{THE_REQUEST} ^.*/index
+RewriteRule ^(.*)index$ https://ali3nated0.github.io/$1 [R=301,L]
+
+# remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
