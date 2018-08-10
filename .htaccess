@@ -1,20 +1,3 @@
 RewriteEngine On
-# remove the index file
-RewriteCond %{THE_REQUEST} ^.*/index
-RewriteRule ^(.*)index$ https://ali3nated0.github.io/x/$1 [R=301,L]
-
-# remove the .php extension
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(([^/]+/)*[^.]+)$ $1.html [L]
-
-# remove the .php extension
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(([^/]+/)*[^.]+)$ $1.php [L]
-
-# redirect from .html to less html
-RewriteCond %{THE_REQUEST} ^[A-Z]+\ /([^/]+/)*[^.#?\ ]+\.html([#?][^\ ]*)?\ HTTP/
-RewriteRule ^(([^/]+/)*[^.]+)\.html https://ali3nated0.github.io/x/$1 [R=301,L]
-
-# redirect from .php to less php
-RewriteCond %{THE_REQUEST} ^[A-Z]+\ /([^/]+/)*[^.#?\ ]+\.php([#?][^\ ]*)?\ HTTP/
-RewriteRule ^(([^/]+/)*[^.]+)\.php https://ali3nated0.github.io/x/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
