@@ -1,8 +1,9 @@
 Options +FollowSymLinks
-RewriteEngine on
+
 # index.html to /
-RewriteCond %{THE_REQUEST} \/index.html\ HTTP [NC]
-RewriteRule (.*)index.html$ /$1 [R=301,L]
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.*/index
+RewriteRule ^(.*)index$ http://www.example.org/$1 [R=301,L]
 
 # remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-f
